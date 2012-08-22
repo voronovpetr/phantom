@@ -1,3 +1,15 @@
+phantom (0.14.0~pre40ubuntu2) lucid; urgency=low
+
+  * fix broken dependency: libssl-dev 
+
+ -- Alexey Lavrenuke (load testing) <direvius@yandex-team.ru>  Wed, 22 Aug 2012 12:04:17 +0400
+
+phantom (0.14.0~pre40ubuntu1) lucid; urgency=low
+
+  * deal with lintian errors
+
+ -- Alexey Lavrenuke (load testing) <direvius@yandex-team.ru>  Tue, 21 Aug 2012 12:38:27 +0400
+
 phantom (0.14.0~pre40) hardy; urgency=low
 
   * svn log https://svn.yandex.ru/phantom/trunk@207

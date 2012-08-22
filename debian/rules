@@ -1,6 +1,8 @@
-#! /bin/sh
+#!/usr/bin/make -f
 
 export DEB_BUILD_OPTIONS=nostrip
 export MAKEFLAGS=Rj12
 
-exec dh "${@}"
+%:
+	dh $@
+
