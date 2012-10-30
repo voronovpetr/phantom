@@ -2,9 +2,9 @@ Source: phantom
 Section: net
 Priority: optional
 Maintainer: Eugene Mamchits <mamchits@yandex-team.ru>
-Standards-Version: 3.9.1
+Standards-Version: 3.9.3
 Build-Depends: debhelper (>= 7), perl,
-	libssl-dev (>= 0.9.8m-1),
+	libssl-dev (>= 0.9.8m),
 	binutils-dev
 
 Package: phantom

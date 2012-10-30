@@ -1,8 +1,8 @@
-phantom (0.14.0~pre44+expubuntu1) hardy; urgency=low
+phantom (0.14.0~pre44+expubuntu1) precise; urgency=low
 
   * merged with phantom, modified for changes
 
- -- Alexey Lavrenuke (load testing) <direvius@yandex-team.ru>  Fri, 26 Oct 2012 14:51:27 +0400
+ -- Alexey Lavrenuke (load testing) <direvius@yandex-team.ru>  Tue, 30 Oct 2012 18:00:55 +0400
 
 phantom (0.14.0~pre44+exp) hardy; urgency=low
 
