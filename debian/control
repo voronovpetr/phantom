@@ -2,7 +2,7 @@ Source: phantom
 Section: net
 Priority: optional
 Maintainer: Eugene Mamchits <mamchits@yandex-team.ru>
-Standards-Version: 3.9.3
+Standards-Version: 3.9.5
 Build-Depends: debhelper (>= 7), perl,
 	libssl-dev (>= 0.9.8m),
 	binutils-dev
@@ -18,7 +18,7 @@ Package: phantom-dev
 Architecture: i386 amd64
 Section: devel
 Priority: optional
-Depends: libc6-dev, g++, phantom (= ${source:Version}), ${perl:Depends}
+Depends: libc6-dev, g++, phantom (= ${binary:Version}), ${perl:Depends},  ${misc:Depends}
 Description: Phantom development library.
 
 Package: phantom-ssl

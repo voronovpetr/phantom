@@ -1,3 +1,9 @@
+phantom (0.14.0~pre65load0nmu) precise; urgency=medium
+
+  * upload to PPA 
+
+ -- Alexey Lavrenuke (load testing) <direvius@yandex-team.ru>  Fri, 06 Jun 2014 17:00:50 +0400
+
 phantom (0.14.0~pre65) precise; urgency=low
 
   * svn log https://svn.yandex.ru/phantom/trunk@287

@@ -2,5 +2,6 @@
 
 export DEB_BUILD_OPTIONS="nostrip parallel=12"
 export MAKEFLAGS=R
+%:
+	dh $@ --parallel
 
-exec dh "${@}" --parallel
