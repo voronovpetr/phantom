@@ -190,14 +190,6 @@ ssl_ctx_t::ssl_ctx_t(
 				SSL_CTX_set_options(ctx, SSL_OP_TLS_ROLLBACK_BUG);
 				SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
 
-				if(ciphers) {
-					MKCSTR(_ciphers, ciphers);
-
-					if(SSL_CTX_set_cipher_list(ctx, _ciphers) <= 0) {
-						log_openssl_error(log::error);
-						throw exception_log_t(log::error, "SSL_CTX_set_cipher_list");
-					}
-				}
 /*
 				SSL_CTX_set_session_cache_mode(ctx, ...);
 				SSL_CTX_set_timeout(ctx, ...);
@@ -216,6 +208,15 @@ ssl_ctx_t::ssl_ctx_t(
 		}
 	}
 
+    if(ciphers) {
+        MKCSTR(_ciphers, ciphers);
+        
+        if(SSL_CTX_set_cipher_list(ctx, _ciphers) <= 0) {
+            log_openssl_error(log::error);
+            throw exception_log_t(log::error, "SSL_CTX_set_cipher_list");
+        }
+    
+    }
 	internal = ctx;
 }
 
