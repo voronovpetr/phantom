@@ -5252,8 +5252,6 @@ void setup_malloc_t::stat_print() const {
 void setup_malloc_t::fini() {
 	for(unsigned i = 0; i < narenas; i++) {
 		arena_t *arena = arenas[i];
-		if (arena != NULL) 
-			arena->lock.stat.__tmp_fini();
 	}
 }
 

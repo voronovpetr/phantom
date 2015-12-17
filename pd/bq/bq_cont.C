@@ -70,7 +70,7 @@ unsigned int bq_spec_reserve() throw() {
 	return bq_spec_num++;
 }
 
-#if defined(__GXX_ABI_VERSION) && __GXX_ABI_VERSION == 1002
+#if defined(__GXX_ABI_VERSION) && __GXX_ABI_VERSION >= 1002
 
 struct __cxa_eh_globals {
 	void *caughtExceptions;
