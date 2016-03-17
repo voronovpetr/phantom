@@ -1,3 +1,9 @@
+phantom (0.14.0~pre65load3nmu) precise; urgency=medium
+
+  * fix for trusty
+
+ -- Alexey Lavrenuke (load testing) <direvius@yandex-team.ru>  Thu, 17 Mar 2016 18:33:38 +0400
+
 phantom (0.14.0~pre65load2nmu) precise; urgency=medium
 
   * another fix for i386
