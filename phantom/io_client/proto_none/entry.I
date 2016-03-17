@@ -93,8 +93,8 @@ class entry_t {
 
 		inline ~tasks_t() throw() { if(tasks) delete [] tasks; }
 
-		inline void init() { stat::meta(stat, mutex.stat).init(); }
-		inline void stat_print() { stat::meta(stat, mutex.stat).print(); }
+		inline void init() { stat::meta(stat).init(); }
+		inline void stat_print() { stat::meta(stat).print(); }
 	};
 
 	tasks_t tasks;

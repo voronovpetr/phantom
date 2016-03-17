@@ -6,6 +6,7 @@
 
 #include "../source.H"
 #include "../../../module.H"
+#include <pd/base/stat.H>
 
 #include <pd/base/config.H>
 #include <pd/base/exception.H>

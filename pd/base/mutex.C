@@ -15,7 +15,6 @@ void mutex_t::lock() {
 	int oval = __sync_val_compare_and_swap(&val, 0, 1);
 
 	if(!oval) {
-		++stat.events()[pass];
 	}
 	else {
 		assert(oval == 1 || oval == 2);
@@ -32,16 +31,13 @@ void mutex_t::lock() {
 		if(tstate)
 			tstate->set(old_state);
 
-		++stat.events()[wait];
 	}
 
 	tid = thr::id;
 
-	stat.tstate().set(locked);
 }
 
 void mutex_t::unlock() {
-	stat.tstate().set(unlocked);
 
 	assert(val != 0);
 
