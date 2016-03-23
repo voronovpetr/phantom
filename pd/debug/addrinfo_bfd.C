@@ -10,6 +10,8 @@
 #include <pd/base/list.H>
 #include <pd/base/exception.H>
 
+#define PACKAGE "phantom"
+
 #include <bfd.h>
 #include <cxxabi.h>
 #include <stdlib.h>
