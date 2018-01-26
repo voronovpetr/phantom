@@ -1,3 +1,9 @@
+phantom (0.14.0~pre65load4nmu) precise; urgency=medium
+
+  * Initialize OpenSSL library in a way to read config-file.
+
+ -- Nurlan Nugumanov (yandex-deb-sign) <r2d2@yandex-team.ru>  Fri, 26 Jan 2018 12:33:38 +0400
+
 phantom (0.14.0~pre65load3nmu) precise; urgency=medium
 
   * fix for trusty
