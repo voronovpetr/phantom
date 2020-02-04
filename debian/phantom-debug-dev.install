@@ -1,0 +1,3 @@
+lib/libpd-debug.a usr/lib
+lib/libpd-debug.s.a usr/lib
+pd/debug/addrinfo_bfd.H usr/include/pd/debug

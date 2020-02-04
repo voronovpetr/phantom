@@ -1,0 +1,10 @@
+Package: phantom-dev
+Source: phantom
+Version: 0.14.0~pre65load4nmuubuntu1
+Architecture: amd64
+Maintainer: Eugene Mamchits <mamchits@yandex-team.ru>
+Installed-Size: 2158
+Depends: libc6-dev, g++, phantom (= 0.14.0~pre65load4nmuubuntu1)
+Section: devel
+Priority: optional
+Description: Phantom development library.

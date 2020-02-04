@@ -1,0 +1,7 @@
+0ca9ef7344fd8a3e253745a4697d7b0a  usr/include/pd/ssl/bq_conn_ssl.H
+f8700d13efeae54e6af02eeaf118c68e  usr/include/pd/ssl/ssl.H
+0f19bd2e3a615f909d4e8cc93289212f  usr/include/phantom/ssl/auth.H
+074194fb544a11d7ababb08e074f98e7  usr/lib/libpd-ssl.a
+694de68fbcb93c09355570f9b607ef76  usr/lib/libpd-ssl.s.a
+27f95fe01b21a6a24b95a1a2d17a93f7  usr/share/doc/phantom-ssl-dev/changelog.gz
+9e61a7733fea7aaa4276a6b4af44cce6  usr/share/doc/phantom-ssl-dev/copyright

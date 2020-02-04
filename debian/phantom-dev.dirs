@@ -1,0 +1,16 @@
+/usr/lib
+/usr/include/pd/base
+/usr/include/pd/bq
+/usr/include/pd/fixinclude
+/usr/include/pd/http
+/usr/include/pd/pi
+/usr/include/phantom
+/usr/include/phantom/io_benchmark
+/usr/include/phantom/io_benchmark/method_stream
+/usr/include/phantom/io_client
+/usr/include/phantom/io_client/proto_fcgi
+/usr/include/phantom/io_client/proto_none
+/usr/include/phantom/io_stream
+/usr/include/phantom/io_stream/proto_http
+/usr/include/phantom/io_stream/proto_http/handler_static
+/usr/share/phantom

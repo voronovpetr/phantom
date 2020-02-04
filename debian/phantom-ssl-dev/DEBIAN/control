@@ -1,0 +1,10 @@
+Package: phantom-ssl-dev
+Source: phantom
+Version: 0.14.0~pre65load4nmuubuntu1
+Architecture: amd64
+Maintainer: Eugene Mamchits <mamchits@yandex-team.ru>
+Installed-Size: 104
+Depends: phantom-dev (= 0.14.0~pre65load4nmuubuntu1), phantom-ssl (= 0.14.0~pre65load4nmuubuntu1)
+Section: devel
+Priority: optional
+Description: Phantom development library (ssl part).
