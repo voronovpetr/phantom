@@ -16,8 +16,8 @@
 
 namespace phantom {
 
-class arena_t {
-	class __hidden impl_t;
+struct arena_t {
+	struct __hidden impl_t;
 	impl_t *impl;
 
 public:

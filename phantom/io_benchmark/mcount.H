@@ -16,7 +16,7 @@
 
 namespace phantom { namespace io_benchmark {
 
-class mcount_t {
+struct mcount_t {
 	spinlock_t spinlock;
 
 	struct vec_t {
@@ -58,12 +58,12 @@ class mcount_t {
 	timeval_t last_reset;
 
 public:
-	class tags_t {
+	struct tags_t {
 	public:
 		virtual size_t size() const = 0;
 		virtual void print(out_t &out, size_t idx) const = 0;
 
-	protected:
+	public:
 		inline tags_t() throw() { }
 		inline ~tags_t() throw() { }
 

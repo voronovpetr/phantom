@@ -14,14 +14,14 @@
 
 namespace phantom { namespace io_stream {
 
-class proto_t : public shared_t {
+struct proto_t : public shared_t {
 public:
 	virtual bool request_proc(
 		in_t::ptr_t &ptr, out_t &out,
 		netaddr_t const &local_addr, netaddr_t const &remote_addr
 	) const = 0;
 
-protected:
+public:
 	inline proto_t(string_t const &name) throw() : shared_t(name) { }
 	inline ~proto_t() throw() { }
 };

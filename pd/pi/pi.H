@@ -19,7 +19,7 @@
 
 namespace pd {
 
-class pi_t {
+struct pi_t {
 	uint32_t value;
 
 public:
@@ -126,7 +126,7 @@ public:
 
 	static enum_table_t const &enum_table_def;
 
-	class exception_t : public pd::exception_t {
+	struct exception_t : public pd::exception_t {
 	public:
 		err_t err;
 
@@ -182,7 +182,7 @@ public:
 		return replace(null_root, null_array, pi, mem);
 	}
 
-	class pro_t;
+	struct pro_t;
 	static root_t *build(pro_t const &pro, mem_t const &mem);
 
 	static cmp_t cmp(pi_t const &pi1, pi_t const &p2);
@@ -190,17 +190,17 @@ public:
 
 	uint32_t hash() const throw();
 
-	class parse_t;
-	friend class parse_t;
+	struct parse_t;
+	friend struct parse_t;
 
-	class print_t;
-	friend class print_t;
+	struct print_t;
+	friend struct print_t;
 
-	class verify_t;
-	friend class verify_t;
+	struct verify_t;
+	friend struct verify_t;
 
-	class replace_t;
-	friend class replace_t;
+	struct replace_t;
+	friend struct replace_t;
 
 	struct c_place_t {
 		union {
@@ -395,11 +395,11 @@ private:
 
 	inline _rsize_t _rsize() const throw() { return _rsize(count); }
 
-	friend class pi_t;
-	friend class parse_t;
-	friend class print_t;
-	friend class verify_t;
-	friend class replace_t;
+	friend struct pi_t;
+	friend struct parse_t;
+	friend struct print_t;
+	friend struct verify_t;
+	friend struct replace_t;
 };
 
 // TMP:
@@ -420,11 +420,11 @@ struct pi_t::array_t : public vector_t<pi_t, count_t> {
 private:
 	pi_t const *bound() const throw();
 
-	friend class pi_t;
-	friend class parse_t;
-	friend class print_t;
-	friend class verify_t;
-	friend class replace_t;
+	friend struct pi_t;
+	friend struct parse_t;
+	friend struct print_t;
+	friend struct verify_t;
+	friend struct replace_t;
 };
 
 struct pi_t::map_item_t {
@@ -486,11 +486,11 @@ private:
 	template<typename uint_t>
 	index_t<uint_t> &index() throw();
 
-	friend class pi_t;
-	friend class parse_t;
-	friend class print_t;
-	friend class verify_t;
-	friend class replace_t;
+	friend struct pi_t;
+	friend struct parse_t;
+	friend struct print_t;
+	friend struct verify_t;
+	friend struct replace_t;
 };
 
 struct pi_t::root_t {
@@ -516,11 +516,11 @@ private:
 		return root;
 	}
 
-	friend class pi_t;
-	friend class parse_t;
-	friend class print_t;
-	friend class verify_t;
-	friend class replace_t;
+	friend struct pi_t;
+	friend struct parse_t;
+	friend struct print_t;
+	friend struct verify_t;
+	friend struct replace_t;
 };
 
 } // namespace pd

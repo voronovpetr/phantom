@@ -39,7 +39,7 @@ struct opt_null_t {
 
 
 template<typename ...args_t>
-class opt_items_t : public opt_item_t<typename args_t::val_t>... {
+struct opt_items_t : public opt_item_t<typename args_t::val_t>... {
 	template<typename x_t>
 	struct assign_item_t {
 		inline assign_item_t(opt_items_t &opts, x_t const &x) {

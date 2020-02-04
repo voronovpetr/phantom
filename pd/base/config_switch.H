@@ -14,8 +14,8 @@
 namespace pd { namespace config {
 
 template<typename key_t, typename val_t, cmp_t cmp_func(key_t const &, key_t const &) = key_t::cmp>
-class switch_t : public block_t {
-	class item_t : public list_item_t<item_t> {
+struct switch_t : public block_t {
+	struct item_t : public list_item_t<item_t> {
 		key_t key;
 		val_t val;
 
@@ -24,8 +24,8 @@ class switch_t : public block_t {
 
 		inline ~item_t() throw() { }
 
-		friend class switch_t;
-		friend class switch_t::ptr_t;
+		friend struct switch_t;
+		friend struct switch_t::ptr_t;
 	} *items;
 
 	inline val_t &find(key_t const &key) {
@@ -42,7 +42,7 @@ class switch_t : public block_t {
 	inline void clear() { while(items) delete items; }
 
 public:
-	class ptr_t {
+	struct ptr_t {
 		item_t const *item;
 
 	public:
@@ -121,8 +121,8 @@ struct helper_t<switch_t<key_t, val_t, cmp_func>> {
 } // namespace config
 
 template<typename key_t, typename val_t>
-class darray2_t {
-protected:
+struct darray2_t {
+public:
 	struct item_t {
 		key_t key;
 		val_t val;

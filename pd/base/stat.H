@@ -17,7 +17,7 @@
 
 namespace pd { namespace stat {
 
-class count_t {
+struct count_t {
 	spinlock_t spinlock;
 	sizeval_t val;
 	timeval_t last_reset;
@@ -54,7 +54,7 @@ public:
 
 	typedef count_t val_t;
 
-	class res_t {
+	struct res_t {
 	public:
 		sizeval_t val;
 		interval_t interval;
@@ -85,11 +85,11 @@ public:
 		}
 	};
 
-	friend class res_t;
+	friend struct res_t;
 };
 
 template<typename _val_t, bool linear_approx>
-class mm_t {
+struct mm_t {
 	spinlock_t spinlock;
 	_val_t val, min_val, max_val;
 
@@ -197,7 +197,7 @@ public:
 
 	typedef mm_t val_t;
 
-	class res_t {
+	struct res_t {
 	public:
 		_val_t min_val, max_val;
 		tsum_t tsum;
@@ -243,7 +243,7 @@ public:
 		}
 	};
 
-	friend class res_t;
+	friend struct res_t;
 };
 
 typedef mm_t<sizeval_t, false> mmcount_t;
@@ -265,10 +265,10 @@ struct tags_t {
 // -------------------------------------------------------------------
 
 template <typename enum_t, unsigned int cnt>
-class vcount_res_t;
+struct vcount_res_t;
 
 template <typename enum_t, unsigned int cnt>
-class vcount_t : public tags_t<cnt> {
+struct vcount_t : public tags_t<cnt> {
 	spinlock_t spinlock;
 	sizeval_t vals[cnt];
 	timeval_t last_reset;
@@ -324,7 +324,7 @@ public:
 
 	item_t operator[](enum_t ind) { return item_t(ind, *this); }
 
-	friend class vcount_res_t<enum_t, cnt>;
+	friend struct vcount_res_t<enum_t, cnt>;
 };
 
 template <typename enum_t, unsigned int cnt>
@@ -388,10 +388,10 @@ struct ctx_t::helper_t<vcount_t<enum_t, cnt>> {
 // -------------------------------------------------------------------
 
 template <typename enum_t, unsigned int cnt>
-class tstate_res_t;
+struct tstate_res_t;
 
 template <typename enum_t, unsigned int cnt>
-class tstate_t : public tags_t<cnt> {
+struct tstate_t : public tags_t<cnt> {
 	spinlock_t spinlock;
 	enum_t val;
 	interval_t times[cnt];
@@ -439,7 +439,7 @@ public:
 		return val;
 	}
 
-	friend class tstate_res_t<enum_t, cnt>;
+	friend struct tstate_res_t<enum_t, cnt>;
 };
 
 template <typename enum_t, unsigned int cnt>

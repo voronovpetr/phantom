@@ -16,7 +16,7 @@
 
 namespace pd {
 
-class out_fd_t : public out_t {
+struct out_fd_t : public out_t {
 	int fd;
 	fd_ctl_t const *fd_ctl;
 	log::level_t log_level;

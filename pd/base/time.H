@@ -89,7 +89,7 @@ inline interval_t operator/(
 	return interval_t((isqval / ival) * 1000000);
 }
 
-class timeval_t : public rel_ops_t<timeval_t> {
+struct timeval_t : public rel_ops_t<timeval_t> {
 	int64_t val;
 
 public:

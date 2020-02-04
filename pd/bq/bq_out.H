@@ -17,7 +17,7 @@
 
 namespace pd {
 
-class bq_out_t : public out_t {
+struct bq_out_t : public out_t {
 
 private:
 	bq_conn_t &conn;

@@ -84,7 +84,7 @@ enum code_t {
 
 string_t code_descr(code_t code);
 
-class exception_t : public pd::exception_t {
+struct exception_t : public pd::exception_t {
 	code_t _code;
 	char const *_msg;
 
@@ -101,7 +101,7 @@ public:
 	virtual ~exception_t() throw();
 };
 
-class eol_t {
+struct eol_t {
 	char c1, c2;
 
 public:
@@ -150,7 +150,7 @@ struct limits_t {
 	limits_t(config_t const &);
 };
 
-class mime_header_t {
+struct mime_header_t {
 	struct item_t {
 		item_t *first;
 		item_t *next;
@@ -213,7 +213,7 @@ private: // don't use
 	mime_header_t &operator=(mime_header_t const &);
 };
 
-class entity_t : public in_segment_list_t {
+struct entity_t : public in_segment_list_t {
 public:
 	mime_header_t trailer;
 

@@ -14,11 +14,11 @@
 
 namespace phantom { namespace io_benchmark {
 
-class method_t : public shared_t {
+struct method_t : public shared_t {
 public:
 	virtual bool test(times_t &times) const = 0;
 
-protected:
+public:
 	inline method_t(string_t const &name) throw() : shared_t(name) { }
 	inline ~method_t() throw() { }
 };

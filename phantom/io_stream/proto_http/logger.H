@@ -14,14 +14,14 @@
 
 namespace phantom { namespace io_stream { namespace proto_http {
 
-class logger_t : public shared_logger_file_t {
+struct logger_t : public shared_logger_file_t {
 public:
 	typedef http::remote_request_t request_t;
 	typedef http::local_reply_t reply_t;
 
 	virtual void commit(request_t const &request, reply_t const &rep) = 0;
 
-protected:
+public:
 	inline logger_t(string_t const &name, config_t const &config) :
 		shared_logger_file_t(name, config) { }
 

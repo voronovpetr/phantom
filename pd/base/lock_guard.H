@@ -13,7 +13,7 @@
 namespace pd {
 
 template<typename lock_t>
-class lock_guard_t {
+struct lock_guard_t {
 	lock_t &lock;
 	bool active;
 
@@ -29,7 +29,7 @@ public:
 };
 
 template<typename cond_t>
-class cond_handler_t {
+struct cond_handler_t {
 	cond_t &cond;
 
 public:

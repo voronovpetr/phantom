@@ -17,7 +17,7 @@ namespace phantom { namespace io_benchmark { namespace method_stream {
 
 struct result_t;
 
-class logger_t : public shared_logger_file_t {
+struct logger_t : public shared_logger_file_t {
 public:
 	enum level_t {
 		all = 0,
@@ -46,7 +46,7 @@ public:
 		inline ~config_t() throw() { }
 	};
 
-protected:
+public:
 	inline logger_t(string_t const &name, config_t const &config) throw() :
 		shared_logger_file_t(name, config), level(config.level) { }
 

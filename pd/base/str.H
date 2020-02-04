@@ -17,7 +17,7 @@ inline constexpr size_t cstrlen(char const *str) {
 	return *str ? 1 + cstrlen(str + 1) : 0;
 }
 
-class str_t {
+struct str_t {
 	char const *data;
 	size_t len;
 
@@ -59,7 +59,7 @@ public:
 		return type_t::cmp(str1.data, str2.data, s1);
 	}
 
-	class ptr_t: public ptr_ops_t<ptr_t> {
+	struct ptr_t: public ptr_ops_t<ptr_t> {
 		char const *ptr, *bound;
 
 	public:

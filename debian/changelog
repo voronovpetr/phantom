@@ -1,3 +1,9 @@
+phantom (0.14.0~pre65load4nmuubuntu1) UNRELEASED; urgency=medium
+
+  * Trying to compile it for Ubuntu 18.04 with GCC 7 
+
+ -- Craboid Deryugina <crab@crab.ru>  Tue, 04 Feb 2020 15:27:08 +0000
+
 phantom (0.14.0~pre65load4nmu) precise; urgency=medium
 
   * Initialize OpenSSL library in a way to read config-file.

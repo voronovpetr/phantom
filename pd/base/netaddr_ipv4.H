@@ -16,7 +16,7 @@
 
 namespace pd {
 
-class netaddr_ipv4_t : public netaddr_t {
+struct netaddr_ipv4_t : public netaddr_t {
 	sockaddr_in sin;
 
 public:

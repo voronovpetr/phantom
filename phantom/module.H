@@ -17,7 +17,7 @@
 
 namespace phantom {
 
-class module_info_t : public list_item_t<module_info_t> {
+struct module_info_t : public list_item_t<module_info_t> {
 	string_t name;
 	unsigned long version;
 

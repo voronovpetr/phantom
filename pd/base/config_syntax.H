@@ -12,7 +12,7 @@
 
 namespace pd { namespace config {
 
-class syntax_t {
+struct syntax_t {
 	syntax_t *next;
 	string_t const type_name;
 	void (*func)(out_t &);

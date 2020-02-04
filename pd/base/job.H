@@ -17,8 +17,8 @@ namespace pd {
 
 typedef uintptr_t job_id_t;
 
-class job_base_t : public ref_count_atomic_t {
-protected:
+struct job_base_t : public ref_count_atomic_t {
+public:
 	inline job_base_t() throw() { }
 
 public:
@@ -26,7 +26,7 @@ public:
 	virtual void _run() const = 0;
 	job_id_t run(string_t const &tname = string_t::empty);
 
-	friend class ref_t<job_base_t>;
+	friend struct ref_t<job_base_t>;
 };
 
 void job_wait(job_id_t);

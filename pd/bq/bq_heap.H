@@ -16,7 +16,7 @@
 
 namespace pd {
 
-class bq_heap_t {
+struct bq_heap_t {
 public:
 	struct item_t {
 		bq_cont_t *cont;
@@ -84,7 +84,7 @@ public:
 	bq_heap_t &operator=(bq_heap_t const &) = delete;
 };
 
-class bq_post_activate_t {
+struct bq_post_activate_t {
 public:
 	virtual void operator()(bq_heap_t::item_t *item) = 0;
 };

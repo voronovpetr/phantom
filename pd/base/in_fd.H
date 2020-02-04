@@ -12,7 +12,7 @@
 
 namespace pd {
 
-class in_fd_t : public in_buf_t {
+struct in_fd_t : public in_buf_t {
 	virtual size_t readv(iovec *iov, size_t cnt);
 
 	int fd;

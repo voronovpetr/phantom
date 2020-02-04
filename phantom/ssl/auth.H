@@ -14,7 +14,7 @@
 
 namespace phantom { namespace ssl {
 
-class auth_t : public ssl_auth_t {
+struct auth_t : public ssl_auth_t {
 public:
 	struct config_t;
 

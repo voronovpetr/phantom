@@ -15,7 +15,7 @@
 namespace pd {
 
 struct bq_job_base_t : public ref_count_atomic_t {
-protected:
+public:
 	inline bq_job_base_t() throw() { }
 
 public:
@@ -23,7 +23,7 @@ public:
 	virtual void _run() const = 0;
 	void run(bq_thr_t *bq_thr);
 
-	friend class ref_t<bq_job_base_t>;
+	friend struct ref_t<bq_job_base_t>;
 };
 
 template<typename x_t, typename ...args_t>

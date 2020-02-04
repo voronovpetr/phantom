@@ -17,11 +17,11 @@
 
 namespace phantom {
 
-class shared_logger_file_t : public shared_t, public log_file_t {
+struct shared_logger_file_t : public shared_t, public log_file_t {
 	interval_t check_interval;
 	scheduler_t const &scheduler;
 
-protected:
+public:
 	virtual void do_init();
 	virtual void do_run() const;
 	virtual void do_stat_print() const;

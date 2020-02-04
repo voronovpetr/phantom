@@ -16,13 +16,13 @@
 
 namespace phantom { namespace io_stream {
 
-class transport_t {
+struct transport_t {
 public:
 	virtual bq_conn_t *new_connect(
 		int fd, fd_ctl_t const *_ctl, log::level_t remote_errors
 	) const = 0;
 
-protected:
+public:
 	inline transport_t() throw() { }
 	inline ~transport_t() throw() { }
 

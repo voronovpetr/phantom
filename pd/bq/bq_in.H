@@ -15,7 +15,7 @@
 
 namespace pd {
 
-class bq_in_t : public in_buf_t {
+struct bq_in_t : public in_buf_t {
 	virtual size_t readv(iovec *iov, size_t cnt);
 
 	bq_conn_t &conn;

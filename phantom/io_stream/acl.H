@@ -14,12 +14,12 @@
 
 namespace phantom { namespace io_stream {
 
-class acl_t {
+struct acl_t {
 public:
 	enum policy_t { unset = 0, allow, deny };
 	virtual bool check(netaddr_t const &netaddr) const throw() = 0;
 
-protected:
+public:
 	inline acl_t() throw() { }
 	inline ~acl_t() throw() { }
 

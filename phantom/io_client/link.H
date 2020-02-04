@@ -19,7 +19,7 @@
 
 namespace phantom { namespace io_client {
 
-class link_t {
+struct link_t {
 	interval_t const conn_timeout;
 	log::level_t remote_errors;
 	proto_t::instance_t *instance;
@@ -34,7 +34,6 @@ public:
 	void run(scheduler_t const &scheduler) const;
 	void stat_print() const;
 
-protected:
 	inline link_t(
 		unsigned int rank, interval_t _conn_timeout,
 		log::level_t _remote_errors, proto_t &_proto
@@ -42,7 +41,6 @@ protected:
 		conn_timeout(_conn_timeout), remote_errors(_remote_errors),
 		instance(_proto.create_instance(rank)) { }
 
-public:
 	virtual ~link_t() throw();
 };
 
@@ -148,8 +146,8 @@ struct pool_t {
 	inline bucket_t &operator[](size_t ind) throw() { return buckets[ind]; }
 };
 
-class links_t {
-protected:
+struct links_t {
+public:
 	string_t name;
 	size_t count;
 	unsigned int rank;
@@ -174,7 +172,7 @@ public:
 		pool_t &pool, interval_t _conn_timeout, log::level_t _remote_errors, proto_t &_proto
 	) const = 0;
 
-protected:
+public:
 	inline links_t(string_t const &_name, config_t const &config) :
 		name(_name), count(config.count), rank(config.rank) { }
 

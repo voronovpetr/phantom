@@ -15,7 +15,7 @@
 namespace pd { namespace config {
 
 template<typename x_t>
-class objptr_t {
+struct objptr_t {
 	x_t *ptr;
 	string_t name;
 
@@ -26,12 +26,12 @@ public:
 	operator x_t *() const { return ptr; }
 	x_t *operator ->() const { return ptr; }
 
-	friend class helper_t<objptr_t<x_t>>;
+	friend struct helper_t<objptr_t<x_t>>;
 };
 
 template<typename x_t>
-class obj_t {
-	class item_t : public list_item_t<item_t> {
+struct obj_t {
+	struct item_t : public list_item_t<item_t> {
 		using list_item_t<item_t>::next;
 
 		virtual x_t *get_item(string_t const &_name) const = 0;
@@ -51,7 +51,7 @@ class obj_t {
 		inline item_t() throw() : list_item_t<item_t>(this, list) { }
 		inline ~item_t() throw() { }
 
-		friend class obj_t<x_t>;
+		friend struct obj_t<x_t>;
 	};
 
 public:
@@ -61,7 +61,7 @@ public:
 
 	static item_t *list;
 
-	class obj_item_t : public item_t {
+	struct obj_item_t : public item_t {
 		string_t const name;
 		x_t *obj;
 
@@ -76,7 +76,7 @@ public:
 	};
 
 	template<typename y_t>
-	class cast_item_t : public item_t {
+	struct cast_item_t : public item_t {
 
 		virtual x_t *get_item(string_t const &_name) const {
 			return obj_t<y_t>::get(_name);
@@ -88,16 +88,16 @@ public:
 
 	static string_t sname;
 
-	friend class helper_t<objptr_t<x_t>>;
+	friend struct helper_t<objptr_t<x_t>>;
 };
 
 template<typename x_t>
 typename obj_t<x_t>::item_t *obj_t<x_t>::list = NULL;
 
 template<typename x_t>
-class obj_ref_t {
+struct obj_ref_t {
 public:
-	class item_t : public list_item_t<item_t>, protected block_t {
+	struct item_t : public list_item_t<item_t>, public block_t {
 		using list_item_t<item_t>::next;
 
 		string_t name;
@@ -115,7 +115,7 @@ public:
 			out.lf();
 		}
 
-	protected:
+	public:
 		inline item_t(
 			string_t const &_name, string_t const &_ctor_name, obj_ref_t &ref
 		) :
@@ -124,13 +124,13 @@ public:
 
 		virtual ~item_t() throw() { }
 
-		friend class obj_ref_t;
+		friend struct obj_ref_t;
 	};
 
 private:
 	item_t *list;
 
-	friend class item_t;
+	friend struct item_t;
 
 public:
 	inline obj_ref_t() throw() : list(NULL) { }
@@ -142,11 +142,11 @@ public:
 };
 
 template<typename x_t>
-class ctor_base_t : public named_list_item_t<ctor_base_t<x_t>> {
+struct ctor_base_t : public named_list_item_t<ctor_base_t<x_t>> {
 	using named_list_item_t<ctor_base_t<x_t>>::list;
 	using named_list_item_t<ctor_base_t<x_t>>::next;
 
-protected:
+public:
 	inline ctor_base_t(string_t const &name) :
 		named_list_item_t<ctor_base_t>(name, this) { }
 
@@ -192,10 +192,10 @@ public:
 	}
 };
 
-class value_parser_base_t {
+struct value_parser_base_t {
 	virtual void parse_value(in_t::ptr_t &ptr) = 0;
 
-protected:
+public:
 	inline value_parser_base_t() throw() { }
 	inline ~value_parser_base_t() throw() { }
 
@@ -207,7 +207,7 @@ public:
 };
 
 template<typename val_t>
-class value_parser_t : public value_parser_base_t {
+struct value_parser_t : public value_parser_base_t {
 	val_t &val;
 
 	virtual void parse_value(in_t::ptr_t &ptr) { helper_t<val_t>::parse(ptr, val); }
@@ -217,8 +217,8 @@ public:
 };
 
 template<typename conf_t>
-class binding_t {
-	class item_t : public list_item_t<item_t> {
+struct binding_t {
+	struct item_t : public list_item_t<item_t> {
 		using list_item_t<item_t>::next;
 
 		virtual bool parse_item(
@@ -253,7 +253,7 @@ class binding_t {
 		inline item_t() throw() : list_item_t<item_t>(this, list) { }
 		inline ~item_t() throw() { }
 
-		friend class binding_t<conf_t>;
+		friend struct binding_t<conf_t>;
 	};
 
 	static item_t *list;
@@ -296,7 +296,7 @@ public:
 	}
 
 	template<typename val_t>
-	class value_t : public item_t {
+	struct value_t : public item_t {
 		string_t name;
 		val_t conf_t::*valp;
 
@@ -332,7 +332,7 @@ public:
 	};
 
 	template<typename x_t>
-	class type_t : public item_t {
+	struct type_t : public item_t {
 		string_t name;
 		string_t sname;
 		obj_ref_t<x_t> conf_t::*refp;
@@ -388,7 +388,7 @@ public:
 	};
 
 	template<typename parent_conf_t>
-	class parent_t : public item_t {
+	struct parent_t : public item_t {
 		virtual bool parse_item(
 			string_t const &_name, in_t::ptr_t &ptr, conf_t &conf
 		) const {
@@ -416,7 +416,7 @@ public:
 		inline ~parent_t() throw() { }
 	};
 
-	class removed_t : public item_t {
+	struct removed_t : public item_t {
 		string_t name;
 		char const *message;
 
@@ -491,11 +491,11 @@ static config::binding_t<x_t::config_t>::removed_t \
 
 
 template<typename x_t, typename real_x_t>
-class ctor_t : public ctor_base_t<x_t> {
+struct ctor_t : public ctor_base_t<x_t> {
 	typedef typename real_x_t::config_t config_t;
 	using ctor_base_t<x_t>::name;
 
-	class obj_item_t :
+	struct obj_item_t :
 		public list_item_t<obj_item_t>, public obj_ref_t<x_t>::item_t {
 
 		// typedef typename real_x_t::config_t config_t;

@@ -16,8 +16,8 @@
 namespace pd { namespace config {
 
 template<typename val_t>
-class record_t : public val_t, public block_t {
-	class item_t : public list_item_t<item_t> {
+struct record_t : public val_t, public block_t {
+	struct item_t : public list_item_t<item_t> {
 		using list_item_t<item_t>::next;
 
 		virtual void parse_item(in_t::ptr_t &ptr, val_t &val) const = 0;
@@ -53,7 +53,7 @@ class record_t : public val_t, public block_t {
 
 public:
 	template<typename x_t>
-	class value_t : public item_t {
+	struct value_t : public item_t {
 		x_t val_t::*xp;
 
 		virtual void parse_item(in_t::ptr_t &ptr, val_t &val) const {

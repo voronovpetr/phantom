@@ -14,14 +14,14 @@
 
 namespace phantom { namespace io_benchmark {
 
-class times_t : public shared_t {
+struct times_t : public shared_t {
 public:
-	class ctor_t {
+	struct ctor_t {
 	public:
 		virtual size_t size() const throw() = 0;
 		virtual void fill(interval_t *_steps) const throw() = 0;
 
-	protected:
+	public:
 		inline ctor_t() throw() { }
 		inline ~ctor_t() throw() { }
 
@@ -65,7 +65,7 @@ private:
 
 	steps_t steps;
 
-	class tags_t : public mcount_t::tags_t {
+	struct tags_t : public mcount_t::tags_t {
 		size_t _size;
 		string_t *items;
 
@@ -103,7 +103,7 @@ private:
 
 	mcount_t mutable mcount;
 
-protected:
+public:
 	inline times_t(string_t const &name, ctor_t const &ctor) :
 		shared_t(name), steps(ctor), tags(steps), mcount(tags) { }
 

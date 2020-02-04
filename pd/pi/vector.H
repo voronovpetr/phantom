@@ -20,8 +20,8 @@ typename x_t::template _ptr_t<x_t> calc_ptr_type(x_t &);
 namespace pd {
 
 template <typename x_t, typename count_t>
-class vector_t {
-protected:
+struct vector_t {
+public:
 	count_t count;
 	x_t items[0];
 
@@ -29,7 +29,7 @@ protected:
 
 public:
 	template<typename _vector_t>
-	class _ptr_t {
+	struct _ptr_t {
 		static int nothing;
 		typedef typeof(((_vector_t *)&nothing)->items[0]) _x_t;
 		_x_t *ptr, *bound;

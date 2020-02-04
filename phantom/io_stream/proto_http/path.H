@@ -15,7 +15,7 @@
 
 namespace phantom { namespace io_stream { namespace proto_http {
 
-class path_t : public string_t {
+struct path_t : public string_t {
 public:
 	inline path_t() throw() : string_t() { }
 	inline ~path_t() throw() { }
@@ -48,7 +48,7 @@ public:
 };
 
 template<typename data_t>
-class paths_t : darray2_t<path_t, data_t> {
+struct paths_t : darray2_t<path_t, data_t> {
 public:
 	typedef typename darray2_t<path_t, data_t>::item_t item_t;
 	using darray2_t<path_t, data_t>::items;

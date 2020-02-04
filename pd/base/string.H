@@ -12,11 +12,11 @@
 
 namespace pd {
 
-class string_t : public in_segment_t {
-	class __hidden page_t;
+struct string_t : public in_segment_t {
+	struct __hidden page_t;
 
 public:
-	class ctor_t : public out_t {
+	struct ctor_t : public out_t {
 		page_t *string_page;
 
 		void setup_out(size_t _size, size_t _wpos);
@@ -59,7 +59,7 @@ public:
 			return *this;
 		}
 
-		friend class string_t;
+		friend struct string_t;
 	};
 
 private:

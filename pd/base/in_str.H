@@ -12,8 +12,8 @@
 
 namespace pd {
 
-class in_str_t : public in_t {
-	class page_t : public in_t::page_t {
+struct in_str_t : public in_t {
+	struct page_t : public in_t::page_t {
 		str_t body;
 
 		virtual bool chunk(size_t off, str_t &str) const;
@@ -30,7 +30,7 @@ class in_str_t : public in_t {
 
 		inline void operator delete(void *) throw() { }
 
-		friend class in_str_t;
+		friend struct in_str_t;
 	};
 
 	virtual bool do_expand();

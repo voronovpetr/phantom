@@ -13,7 +13,7 @@
 namespace pd { namespace config {
 
 template<typename val_t>
-class struct_t : public val_t, public block_t {
+struct struct_t : public val_t, public block_t {
 public:
 
 	template<typename ...args_t>

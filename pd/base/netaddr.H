@@ -22,7 +22,7 @@ struct netaddr_t {
 	virtual void print(out_t &out, char const *fmt = NULL) const = 0;
 	virtual size_t print_len() const = 0;
 	virtual ~netaddr_t() throw();
-protected:
+public:
 	inline netaddr_t() throw() : sa_len(0) { }
 	inline netaddr_t(socklen_t _sa_len) throw() : sa_len(_sa_len) {
 		memset(sa, 0, sa_len);

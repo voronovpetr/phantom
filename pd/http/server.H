@@ -14,7 +14,7 @@
 
 namespace pd { namespace http {
 
-class remote_request_t {
+struct remote_request_t {
 public:
 	in_segment_t line;
 	method_t method;
@@ -70,12 +70,12 @@ private: // don't use
 	remote_request_t &operator=(remote_request_t const &);
 };
 
-class server_t {
+struct server_t {
 public:
 	virtual void print_header(out_t &out) const = 0;
 	virtual bool filter_header(in_segment_t const &key) const = 0;
 
-protected:
+public:
 	inline server_t() throw() { }
 	inline ~server_t() throw() { }
 
@@ -84,12 +84,12 @@ private: // don't use
 	void operator delete(void *);
 };
 
-class local_reply_t {
+struct local_reply_t {
 public:
 	remote_request_t &request;
 	interval_t reply_time;
 
-	class content_t {
+	struct content_t {
 		virtual code_t code() const throw() = 0;
 		virtual ssize_t size() const = 0;
 		virtual void print_header(out_t &, server_t const &) const = 0;
@@ -97,18 +97,18 @@ public:
 		virtual void postout() const;
 		virtual string_t ext_info(string_t const &) const;
 
-	protected:
+	public:
 		inline content_t() throw() { }
 		virtual ~content_t() throw();
 
-		friend class local_reply_t;
+		friend struct local_reply_t;
 
 	private: // don't use
 		content_t(content_t &);
 		content_t &operator=(content_t &);
 	};
 
-	class error_content_t : public content_t {
+	struct error_content_t : public content_t {
 		code_t error_code;
 		string_t descr;
 

@@ -16,8 +16,8 @@
 
 namespace phantom { namespace io_benchmark { namespace method_stream {
 
-class conn_t {
-protected:
+struct conn_t {
+public:
 	int fd;
 
 public:
@@ -35,11 +35,11 @@ public:
 	virtual ~conn_t() throw();
 };
 
-class transport_t {
+struct transport_t {
 public:
 	virtual conn_t *new_connect(int fd, fd_ctl_t const *_ctl) const = 0;
 
-protected:
+public:
 	inline transport_t() throw() { }
 	inline ~transport_t() throw() { }
 

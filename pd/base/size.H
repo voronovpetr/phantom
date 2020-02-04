@@ -14,7 +14,7 @@
 
 namespace pd {
 
-class sizeval_t {
+struct sizeval_t {
 	uint64_t val;
 
 public:

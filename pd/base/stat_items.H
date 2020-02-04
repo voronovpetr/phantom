@@ -152,7 +152,7 @@ struct items_t :
 		return _res;
 	}
 
-protected:
+public:
 	template<typename ...tags_t>
 	inline items_t(tags_t const &...tags) :
 		__items_t<idxs_t, args_t...>(tags...),

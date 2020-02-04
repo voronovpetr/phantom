@@ -16,12 +16,12 @@
 namespace phantom { namespace io_client {
 
 namespace proto_none {
-class task_t;
-class entry_t;
-class instance_t;
+struct task_t;
+struct entry_t;
+struct instance_t;
 }
 
-class proto_none_t : public proto_t {
+struct proto_none_t : public proto_t {
 	typedef proto_none::task_t task_t;
 	typedef proto_none::entry_t entry_t;
 	typedef proto_none::instance_t instance_t;

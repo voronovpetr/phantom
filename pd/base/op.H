@@ -35,7 +35,7 @@ inline x_t &maximize(x_t &x, y_t const &a) {
 }
 
 template<typename x_t>
-class rel_ops_t {
+struct rel_ops_t {
 	friend inline bool operator!=(x_t const &x1, x_t const &x2) {
 		return !(x1 == x2);
 	}
@@ -54,8 +54,8 @@ class rel_ops_t {
 };
 
 template<typename x_t, typename base_t>
-class dim_t : rel_ops_t<x_t> {
-protected:
+struct dim_t : rel_ops_t<x_t> {
+public:
 	base_t _val;
 
 public:
@@ -134,7 +134,7 @@ public:
 };
 
 template<typename x_t>
-class ptr_ops_t : public rel_ops_t<x_t> {
+struct ptr_ops_t : public rel_ops_t<x_t> {
 	friend inline x_t &operator++(x_t &x) { return x += 1U; }
 
 	friend inline x_t operator++(x_t &x, int) {

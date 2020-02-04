@@ -19,7 +19,7 @@
 
 namespace pd {
 
-class bq_conn_ssl_t : public bq_conn_t {
+struct bq_conn_ssl_t : public bq_conn_t {
 	void *internal;
 
 	interval_t timeout; // means SSL_{connect,accept,shutdown} timeout only

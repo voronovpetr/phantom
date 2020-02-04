@@ -12,11 +12,11 @@
 
 namespace pd { namespace config {
 
-class block_t {
+struct block_t {
 	virtual void parse_content(in_t::ptr_t &ptr) = 0;
 	virtual void print_content(out_t &out, int off) const = 0;
 
-protected:
+public:
 	inline block_t() throw() { }
 	inline ~block_t() throw() { }
 
