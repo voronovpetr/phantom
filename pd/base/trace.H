@@ -13,7 +13,7 @@
 
 namespace pd {
 
-class out_t;
+struct out_t;
 
 void trace_setup(void const **ptrs, size_t n);
 void trace_print(void const *const *ptrs, size_t n, out_t &out);
@@ -25,7 +25,7 @@ typedef void (*trace_addrinfo_print_t)(
 extern trace_addrinfo_print_t trace_addrinfo_print;
 
 template<unsigned int N>
-class trace_t {
+struct trace_t {
 	void const *ptr[N];
 
 public:

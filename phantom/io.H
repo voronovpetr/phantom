@@ -14,9 +14,9 @@
 
 namespace phantom {
 
-class scheduler_t;
+struct scheduler_t;
 
-class io_t : public obj_t {
+struct io_t : public obj_t {
 	void do_exec() const;
 	virtual void exec() const;
 	virtual void run() const = 0;
@@ -37,7 +37,7 @@ public:
 
 	static unsigned int active_count;
 
-protected:
+public:
 	scheduler_t const &scheduler;
 
 	bool const active;

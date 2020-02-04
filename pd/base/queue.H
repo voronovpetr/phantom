@@ -16,7 +16,7 @@
 namespace pd {
 
 template<typename x_t>
-class queue_t {
+struct queue_t {
 	size_t const maxcount;
 	size_t count, head, tail;
 	x_t *items;

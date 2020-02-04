@@ -15,7 +15,7 @@
 namespace pd {
 
 template<typename x_t>
-class ref_t {
+struct ref_t {
 	x_t *x;
 
 public:
@@ -48,10 +48,10 @@ public:
 	inline x_t *operator->() const { return x; }
 };
 
-class ref_count_t {
+struct ref_count_t {
 	unsigned int counter;
 
-protected:
+public:
 	inline bool ref_count_inc() throw() { return !++counter; }
 	inline bool ref_count_dec() throw() { return !--counter; }
 
@@ -61,10 +61,10 @@ protected:
 	inline ~ref_count_t() throw() { assert(!counter); }
 };
 
-class ref_count_atomic_t {
+struct ref_count_atomic_t {
 	unsigned int counter;
 
-protected:
+public:
 	inline bool ref_count_inc() throw() {
 		return !__sync_add_and_fetch(&counter, 1);
 	}

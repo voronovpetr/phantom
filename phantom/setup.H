@@ -12,8 +12,8 @@
 
 namespace phantom {
 
-class setup_t {
-protected:
+struct setup_t {
+public:
 	inline setup_t() throw() { }
 	inline ~setup_t() throw() { }
 

@@ -15,7 +15,7 @@ namespace pd {
 
 #if defined(__x86_64__)
 
-class spinlock_t {
+struct spinlock_t {
 	int val;
 
 public:
@@ -40,7 +40,7 @@ public:
 
 #else
 
-class spinlock_t {
+struct spinlock_t {
 	int val;
 
 public:

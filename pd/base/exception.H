@@ -14,14 +14,14 @@
 
 namespace pd {
 
-class exception_t {
-protected:
+struct exception_t {
+public:
 	inline exception_t() throw() { }
 public:
 	virtual ~exception_t() throw();
 };
 
-class exception_log_t : public exception_t {
+struct exception_log_t : public exception_t {
 	log::level_t log_level;
 	log::aux_t *aux;
 
@@ -33,7 +33,7 @@ public:
 	virtual ~exception_log_t() throw();
 };
 
-class exception_sys_t : public exception_t {
+struct exception_sys_t : public exception_t {
 	log::level_t log_level;
 	log::aux_t *aux;
 

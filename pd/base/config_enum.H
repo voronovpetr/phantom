@@ -14,10 +14,10 @@
 namespace pd { namespace config {
 
 template<typename val_t>
-class enum_t {
+struct enum_t {
 	val_t val;
 public:
-	class item_t : public named_list_item_t<item_t> {
+	struct item_t : public named_list_item_t<item_t> {
 		using named_list_item_t<item_t>::next;
 		using named_list_item_t<item_t>::name;
 
@@ -49,7 +49,7 @@ public:
 
 		inline ~item_t() throw() { }
 
-		friend class helper_t<enum_t<val_t>>;
+		friend struct helper_t<enum_t<val_t>>;
 	};
 
 	inline enum_t(val_t _val) throw() : val(_val) { }

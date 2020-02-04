@@ -15,11 +15,11 @@
 namespace phantom { namespace io_client {
 
 namespace proto_fcgi {
-class entry_t;
-class instance_t;
+struct entry_t;
+struct instance_t;
 }
 
-class proto_fcgi_t : public proto_t {
+struct proto_fcgi_t : public proto_t {
 	typedef proto_fcgi::entry_t entry_t;
 	typedef proto_fcgi::instance_t instance_t;
 

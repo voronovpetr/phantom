@@ -17,7 +17,7 @@
 
 namespace phantom { namespace io_client { namespace proto_none {
 
-class task_t : public ref_count_atomic_t {
+struct task_t : public ref_count_atomic_t {
 	timeval_t begin_time;
 	timeval_t complete_time;
 	enum { processed, ready, canceled } status;
@@ -77,14 +77,14 @@ public:
 		return task1->begin_time <= task2->begin_time;
 	}
 
-protected:
+public:
 	inline task_t() :
 		begin_time(timeval::never), complete_time(timeval::never),
 		status(processed), cond() { }
 
 	virtual ~task_t() throw();
 
-	friend class ref_t<task_t>;
+	friend struct ref_t<task_t>;
 };
 
 }}} // namespace phantom::io_client::proto_none

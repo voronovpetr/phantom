@@ -14,8 +14,8 @@
 
 namespace pd {
 
-class fd_guard_t {
-protected:
+struct fd_guard_t {
+public:
 	int fd;
 public:
 	inline fd_guard_t(int _fd) throw() : fd(_fd) { }

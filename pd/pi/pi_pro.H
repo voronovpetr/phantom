@@ -10,15 +10,15 @@
 
 namespace pd {
 
-class pi_t::pro_t {
+struct pi_t::pro_t {
 public:
-	class array_t;
-	class item_t;
+	struct array_t;
+	struct item_t;
 
 	static item_t const *null_array;
 
-	class map_t;
-	class pair_t;
+	struct map_t;
+	struct pair_t;
 
 	static pair_t const *null_map;
 
@@ -127,7 +127,7 @@ public:
 	struct cvt_t;
 
 	template<typename ...>
-	class m_array_t;
+	struct m_array_t;
 
 	template<typename ...x_t>
 	static inline m_array_t<typename cvt_t<x_t>::type_t...> array(x_t const &...x) {
@@ -135,7 +135,7 @@ public:
 	}
 
 	template<typename key_t, typename value_t>
-	class m_pair_t;
+	struct m_pair_t;
 
 	template<typename key_t, typename value_t>
 	static inline m_pair_t<
@@ -149,7 +149,7 @@ public:
 	}
 
 	template<typename ...>
-	class m_map_t;
+	struct m_map_t;
 
 	template<typename ...pairs_t>
 	static inline m_map_t<pairs_t...> map(pairs_t const &...pairs) {

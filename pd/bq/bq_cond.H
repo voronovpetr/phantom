@@ -14,10 +14,10 @@ namespace pd {
 
 namespace bq_cond {
 
-class lock_t;
+struct lock_t;
 
-class queue_t {
-	class __hidden wait_item_t;
+struct queue_t {
+	struct __hidden wait_item_t;
 	wait_item_t *list;
 	wait_item_t **last;
 
@@ -29,11 +29,11 @@ public:
 	void wait(lock_t &lock);
 	void send(lock_t &loock, bool broadcast) throw();
 
-	friend class wait_item_t;
-	friend class lock_t;
+	friend struct wait_item_t;
+	friend struct lock_t;
 };
 
-class lock_t {
+struct lock_t {
 	spinlock_t spinlock;
 	bq_thr_t::impl_t *thr_impl;
 
@@ -44,8 +44,8 @@ public:
 	void lock();
 	void unlock();
 
-	friend class queue_t;
-	friend class queue_t::wait_item_t;
+	friend struct queue_t;
+	friend struct queue_t::wait_item_t;
 };
 
 enum single_t { single = 0 };
@@ -53,7 +53,7 @@ enum single_t { single = 0 };
 } // namespace bq_cond
 
 template<unsigned int n, typename enum_t>
-class bq_cond_base_t : public bq_cond::lock_t {
+struct bq_cond_base_t : public bq_cond::lock_t {
 	bq_cond::queue_t queue[n];
 
 public:
@@ -69,7 +69,7 @@ public:
 		return (unsigned int)idx < n ? (unsigned int)idx : 0;
 	}
 
-	class handler_t {
+	struct handler_t {
 		bq_cond_base_t &cond;
 
 	public:
@@ -102,13 +102,13 @@ private:
 	}
 };
 
-class bq_cond_t : public bq_cond_base_t<1, bq_cond::single_t> {
+struct bq_cond_t : public bq_cond_base_t<1, bq_cond::single_t> {
 public:
 	inline bq_cond_t() : bq_cond_base_t<1, bq_cond::single_t>() { }
 
 	inline ~bq_cond_t() throw() { }
 
-	class handler_t : public bq_cond_base_t<1, bq_cond::single_t>::handler_t {
+	struct handler_t : public bq_cond_base_t<1, bq_cond::single_t>::handler_t {
 	public:
 		inline handler_t(bq_cond_t &_bq_cond) :
 			bq_cond_base_t<1, bq_cond::single_t>::handler_t(_bq_cond) { }

@@ -13,7 +13,7 @@
 
 namespace pd {
 
-class mutex_t {
+struct mutex_t {
 	int val;
 	pid_t tid;
 

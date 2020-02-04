@@ -12,7 +12,7 @@
 
 namespace pd {
 
-class ssl_auth_t {
+struct ssl_auth_t {
 	string_t key, cert;
 
 public:
@@ -23,10 +23,10 @@ public:
 	ssl_auth_t(ssl_auth_t const &) = delete;
 	ssl_auth_t &operator=(ssl_auth_t const &) = delete;
 
-	friend class ssl_ctx_t;
+	friend struct ssl_ctx_t;
 };
 
-class ssl_ctx_t {
+struct ssl_ctx_t {
 public:
 	void *internal;
 	enum mode_t { client, server };

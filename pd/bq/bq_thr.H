@@ -21,7 +21,7 @@
 
 namespace pd {
 
-class bq_cont_count_t {
+struct bq_cont_count_t {
 	spinlock_t spinlock;
 	unsigned int counter;
 	unsigned int limit;
@@ -55,9 +55,9 @@ public:
 	bq_cont_count_t &operator=(bq_cont_count_t const &) = delete;
 };
 
-class bq_thr_t {
+struct bq_thr_t {
 public:
-	class __hidden impl_t;
+	struct __hidden impl_t;
 
 private:
 	impl_t *impl;

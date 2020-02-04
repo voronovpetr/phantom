@@ -41,10 +41,10 @@ struct items_t :
 } // namespace fbind
 
 template<typename>
-class fbind_t;
+struct fbind_t;
 
 template<typename res_t, typename ...args_t>
-class fbind_t<res_t (*)(args_t ...args)> {
+struct fbind_t<res_t (*)(args_t ...args)> {
 	typedef res_t (*func_t)(args_t ...args);
 
 	func_t func;
@@ -70,7 +70,7 @@ public:
 };
 
 template<typename res_t, typename x_t, typename ...args_t>
-class fbind_t<res_t (x_t::*)(args_t ...)> {
+struct fbind_t<res_t (x_t::*)(args_t ...)> {
 	typedef res_t (x_t::*mfunc_t)(args_t ...);
 
 	x_t &x;
@@ -97,7 +97,7 @@ public:
 };
 
 template<typename res_t, typename x_t, typename ...args_t>
-class fbind_t<res_t (x_t::*)(args_t ...) const> {
+struct fbind_t<res_t (x_t::*)(args_t ...) const> {
 	typedef res_t (x_t::*mfunc_t)(args_t ...) const;
 
 	x_t const &x;
@@ -126,10 +126,10 @@ public:
 // -------------------------------------------------
 
 template<typename, typename>
-class job_t;
+struct job_t;
 
 template<typename res_t, typename ...args_t, typename base_t>
-class job_t<res_t (*)(args_t ...), base_t> : public base_t {
+struct job_t<res_t (*)(args_t ...), base_t> : public base_t {
 	typedef res_t (*func_t)(args_t ...);
 
 	fbind_t<func_t> fbind;
@@ -143,7 +143,7 @@ public:
 };
 
 template<typename res_t, typename x_t, typename ...args_t, typename base_t>
-class job_t<res_t (x_t::*)(args_t ...), base_t> : public base_t {
+struct job_t<res_t (x_t::*)(args_t ...), base_t> : public base_t {
 	typedef res_t (x_t::*mfunc_t)(args_t ...);
 
 	fbind_t<mfunc_t> fbind;
@@ -157,7 +157,7 @@ public:
 };
 
 template<typename res_t, typename x_t, typename ...args_t, typename base_t>
-class job_t<res_t (x_t::*)(args_t ...) const, base_t> : public base_t {
+struct job_t<res_t (x_t::*)(args_t ...) const, base_t> : public base_t {
 	typedef res_t (x_t::*mfunc_t)(args_t ...) const;
 
 	fbind_t<mfunc_t> fbind;
@@ -173,10 +173,10 @@ public:
 // -------------------------------------------------
 
 template<typename, typename>
-class job_gen_t;
+struct job_gen_t;
 
 template<typename res_t, typename ...args_t, typename base_t>
-class job_gen_t<res_t (*)(args_t ...), base_t> {
+struct job_gen_t<res_t (*)(args_t ...), base_t> {
 	typedef res_t (*func_t)(args_t ...);
 
 	func_t func;
@@ -195,7 +195,7 @@ public:
 };
 
 template<typename res_t, typename x_t, typename ...args_t, typename base_t>
-class job_gen_t<res_t (x_t::*)(args_t ...), base_t> {
+struct job_gen_t<res_t (x_t::*)(args_t ...), base_t> {
 	typedef res_t (x_t::*mfunc_t)(args_t ...);
 
 	mfunc_t mfunc;
@@ -214,7 +214,7 @@ public:
 };
 
 template<typename res_t, typename x_t, typename ...args_t, typename base_t>
-class job_gen_t<res_t (x_t::*)(args_t ...) const, base_t> {
+struct job_gen_t<res_t (x_t::*)(args_t ...) const, base_t> {
 	typedef res_t (x_t::*mfunc_t)(args_t ...) const;
 
 	mfunc_t mfunc;

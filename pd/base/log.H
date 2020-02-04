@@ -28,8 +28,8 @@ inline level_t operator~(level_t l) throw() {
 	return (level_t)(~(unsigned int)l);
 }
 
-class backend_t {
-protected:
+struct backend_t {
+public:
 	inline backend_t() throw() { }
 	inline ~backend_t() throw() { }
 
@@ -47,18 +47,18 @@ public:
 	virtual level_t level() const throw() = 0;
 };
 
-class aux_t {
+struct aux_t {
 public:
 	virtual void print(out_t &out) const = 0;
 	inline aux_t() throw() { }
 	virtual ~aux_t() throw();
 };
 
-class handler_base_t {
+struct handler_base_t {
 	handler_base_t *prev;
 	bool root;
 
-protected:
+public:
 	string_t const _label;
 	backend_t const &_backend;
 
@@ -131,7 +131,7 @@ inline char const *number_fmt(size_t cnt) {
 	return "06";
 }
 
-class handler_t : public handler_base_t {
+struct handler_t : public handler_base_t {
 	virtual void vput(
 		level_t level, aux_t const *aux, char const *format, va_list vargs
 	) const throw();

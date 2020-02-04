@@ -12,7 +12,7 @@
 
 namespace pd {
 
-class fd_ctl_tcp_t : public fd_ctl_t {
+struct fd_ctl_tcp_t : public fd_ctl_t {
 	bool cork;
 
 public:

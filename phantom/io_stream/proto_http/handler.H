@@ -16,19 +16,19 @@
 
 namespace phantom {
 
-class scheduler_t;
+struct scheduler_t;
 
 namespace io_stream { namespace proto_http {
 
 namespace handler {
 
-class verify_t {
+struct verify_t {
 public:
 	typedef http::remote_request_t request_t;
 
 	virtual void proc(request_t const &request) const = 0;
 
-protected:
+public:
 	inline verify_t() throw() { }
 	inline ~verify_t() throw() { }
 
@@ -38,7 +38,7 @@ protected:
 
 } // namespace handler
 
-class handler_t {
+struct handler_t {
 public:
 	typedef http::remote_request_t request_t;
 	typedef http::local_reply_t reply_t;
@@ -69,7 +69,7 @@ public:
 
 	void proc(request_t const &request, reply_t &reply) const;
 
-protected:
+public:
 	inline handler_t(string_t const &, config_t const &config) throw() :
 		verify(config.verify),
 		scheduler(config.scheduler), switch_prio(config.switch_prio) { }

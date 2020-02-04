@@ -25,8 +25,8 @@ struct file_type_t {
 	inline ~file_type_t() throw() { }
 };
 
-class file_types_t {
-protected:
+struct file_types_t {
+public:
 	struct item_t : public file_type_t {
 		item_t *first;
 		item_t *next;

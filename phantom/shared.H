@@ -14,8 +14,8 @@
 #pragma GCC visibility push(default)
 
 namespace phantom {
-class shared_t {
-protected:
+struct shared_t {
+public:
 	string_t const *master;
 
 	virtual void do_init() = 0;
@@ -59,7 +59,7 @@ public:
 		}
 	}
 
-protected:
+public:
 	inline shared_t(string_t const &_name) throw() :
 		master(NULL), name(_name) { }
 

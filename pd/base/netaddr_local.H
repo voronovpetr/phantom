@@ -16,7 +16,7 @@
 
 namespace pd {
 
-class netaddr_local_t : public netaddr_t {
+struct netaddr_local_t : public netaddr_t {
 	sockaddr_un sun;
 
 public:

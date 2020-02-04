@@ -15,7 +15,7 @@ void *&bq_spec(unsigned int id, void *&non_bq);
 unsigned int bq_spec_reserve() throw();
 
 template<typename x_t, void **non_bq>
-class bq_spec_t {
+struct bq_spec_t {
 	unsigned int id;
 
 public:

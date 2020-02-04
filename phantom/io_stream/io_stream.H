@@ -20,13 +20,13 @@
 namespace phantom {
 
 namespace io_stream {
-class transport_t;
-class proto_t;
-class acl_t;
+struct transport_t;
+struct proto_t;
+struct acl_t;
 struct stat_t;
 }
 
-class io_stream_t : public io_t {
+struct io_stream_t : public io_t {
 public:
 	typedef io_stream::transport_t transport_t;
 	typedef io_stream::proto_t proto_t;
@@ -85,7 +85,7 @@ public:
 		inline ~config_t() throw() { }
 	};
 
-protected:
+public:
 	io_stream_t(string_t const &name, config_t const &config);
 	~io_stream_t() throw();
 };

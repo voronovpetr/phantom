@@ -13,7 +13,7 @@
 
 namespace pd {
 
-class cmp_t {
+struct cmp_t {
 	int val;
 public:
 	inline cmp_t(int _val) throw() : val(_val) { }
@@ -46,7 +46,7 @@ struct lower_t {
 	}
 };
 
-class fnv_t {
+struct fnv_t {
 	uint64_t n;
 
 public:

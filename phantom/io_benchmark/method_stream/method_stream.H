@@ -18,20 +18,20 @@
 
 namespace phantom { namespace io_benchmark {
 
-class conn_t;
+struct conn_t;
 
 namespace method_stream {
-class source_t;
-class transport_t;
-class proto_t;
-class logger_t;
-class conn_t;
-class result_t;
+struct source_t;
+struct transport_t;
+struct proto_t;
+struct logger_t;
+struct conn_t;
+struct result_t;
 struct __hidden stat_t;
-class __hidden loggers_t;
+struct __hidden loggers_t;
 }
 
-class method_stream_t : public method_t {
+struct method_stream_t : public method_t {
 public:
 	typedef method_stream::source_t source_t;
 	typedef method_stream::transport_t transport_t;

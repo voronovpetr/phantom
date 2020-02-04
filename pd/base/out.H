@@ -12,8 +12,8 @@
 
 namespace pd {
 
-class out_t {
-protected:
+struct out_t {
+public:
 	char *data;
 	size_t size;
 	size_t wpos, rpos;

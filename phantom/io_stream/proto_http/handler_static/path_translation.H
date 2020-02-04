@@ -14,13 +14,13 @@
 
 namespace phantom { namespace io_stream { namespace proto_http { namespace handler_static {
 
-class path_translation_t {
+struct path_translation_t {
 public:
 	virtual string_t translate(
 		string_t const &root, string_t const &path
 	) const = 0;
 
-protected:
+public:
 	inline path_translation_t() throw() { }
 	inline ~path_translation_t() throw() { }
 

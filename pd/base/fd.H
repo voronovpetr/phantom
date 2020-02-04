@@ -12,7 +12,7 @@
 
 namespace pd {
 
-class fd_ctl_t {
+struct fd_ctl_t {
 public:
 	virtual void operator()(int fd, int i) const = 0;
 

@@ -15,8 +15,8 @@ namespace pd {
 
 namespace cond {
 
-class queue_t {
-	class __hidden item_t;
+struct queue_t {
+	struct __hidden item_t;
 	item_t *list;
 	item_t **last;
 
@@ -28,7 +28,7 @@ public:
 	void wait(mutex_t &mutex) throw();
 	void send(bool broadcast) throw();
 
-	friend class item_t;
+	friend struct item_t;
 };
 
 enum single_t { single = 0 };
@@ -36,7 +36,7 @@ enum single_t { single = 0 };
 } // namespace cond
 
 template<unsigned int n, typename enum_t>
-class cond_base_t {
+struct cond_base_t {
 	mutex_t mutex;
 
 	cond::queue_t queue[n];
@@ -57,7 +57,7 @@ public:
 		return (unsigned int)idx < n ? (unsigned int)idx : 0;
 	}
 
-	class handler_t {
+	struct handler_t {
 		cond_base_t &cond;
 
 	public:
@@ -89,16 +89,16 @@ private:
 		queue[fix(idx)].send(broadcast);
 	}
 
-	friend class handler_t;
+	friend struct handler_t;
 };
 
-class cond_t : public cond_base_t<1, cond::single_t> {
+struct cond_t : public cond_base_t<1, cond::single_t> {
 public:
 	inline cond_t() : cond_base_t<1, cond::single_t>() { }
 
 	inline ~cond_t() throw() { }
 
-	class handler_t : public cond_base_t<1, cond::single_t>::handler_t {
+	struct handler_t : public cond_base_t<1, cond::single_t>::handler_t {
 	public:
 		inline handler_t(cond_t &_cond) :
 			cond_base_t<1, cond::single_t>::handler_t(_cond) { }

@@ -15,12 +15,12 @@
 
 namespace pd {
 
-class bq_mutex_t {
+struct bq_mutex_t {
 	spinlock_t spinlock;
 
 	bool state;
 
-	class __hidden wait_item_t;
+	struct __hidden wait_item_t;
 	wait_item_t *list, **last;
 
 public:
@@ -36,7 +36,7 @@ public:
 	void lock();
 	void unlock() throw();
 
-	friend class wait_item_t;
+	friend struct wait_item_t;
 };
 
 typedef lock_guard_t<bq_mutex_t> bq_mutex_guard_t;

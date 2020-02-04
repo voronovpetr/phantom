@@ -14,10 +14,10 @@
 namespace pd {
 
 namespace log_file {
-class __hidden handler_t;
+struct __hidden handler_t;
 }
 
-class log_file_t {
+struct log_file_t {
 	typedef log_file::handler_t handler_t;
 
 	handler_t &handler;

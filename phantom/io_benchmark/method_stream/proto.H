@@ -16,14 +16,14 @@
 
 namespace phantom { namespace io_benchmark { namespace method_stream {
 
-class proto_t : public shared_t {
+struct proto_t : public shared_t {
 public:
 	virtual bool reply_parse(
 		in_t::ptr_t &ptr, in_segment_t const &request,
 		unsigned int &res_code, logger_t::level_t &lev
 	) const = 0;
 
-protected:
+public:
 	inline proto_t(string_t const &_name) throw() : shared_t(_name) { }
 	inline ~proto_t() throw() { }
 };

@@ -15,7 +15,7 @@
 
 namespace phantom {
 
-class obj_t : public list_item_t<obj_t> {
+struct obj_t : public list_item_t<obj_t> {
 	static obj_t *list;
 
 	virtual void init() = 0;
@@ -35,7 +35,7 @@ public:
 	friend bool objs_exist();
 	friend size_t objs_all(obj_t const **objs, obj_t *obj);
 
-protected:
+public:
 	inline obj_t(string_t const &_name) :
 		list_item_t<obj_t>(this, list), name(_name) { }
 

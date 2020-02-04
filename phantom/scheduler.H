@@ -20,7 +20,7 @@
 
 namespace phantom {
 
-class scheduler_t : public obj_t {
+struct scheduler_t : public obj_t {
 public:
 	enum policy_t {
 		other = SCHED_OTHER,
@@ -29,7 +29,7 @@ public:
 		batch = SCHED_BATCH
 	};
 
-protected:
+public:
 	string_t tname;
 
 private:
@@ -47,7 +47,7 @@ private:
 	int priority;
 	bool need_set_priority;
 
-	class ind_t {
+	struct ind_t {
 		size_t maxval;
 		size_t val;
 		spinlock_t spinlock;
@@ -93,7 +93,7 @@ public:
 		inline ~config_t() throw() { }
 	};
 
-protected:
+public:
 	scheduler_t(string_t const &_name, config_t const &config);
 	~scheduler_t() throw();
 

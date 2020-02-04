@@ -16,13 +16,13 @@
 
 namespace pd {
 
-class in_segment_t;
+struct in_segment_t;
 
-class in_t {
+struct in_t {
 	virtual bool do_expand() = 0;
 	virtual void __noreturn unexpected_end() const = 0;
 
-protected:
+public:
 	inline bool expand(size_t off) const {
 		while(off > off_end) {
 			if(!((in_t *)this)->do_expand()) // FIXME: dirty hack
@@ -32,8 +32,8 @@ protected:
 	}
 
 public:
-	class page_t : public ref_count_atomic_t {
-	protected:
+	struct page_t : public ref_count_atomic_t {
+	public:
 		inline page_t() throw() : next() { }
 
 		virtual ~page_t() throw();
@@ -45,10 +45,10 @@ public:
 		virtual unsigned int depth() const = 0;
 		virtual bool optimize(in_segment_t &segment) const = 0;
 
-		friend class ref_t<page_t>;
+		friend struct ref_t<page_t>;
 	};
 
-protected:
+public:
 	size_t off_begin;
 	size_t off_end;
 	ref_t<page_t> list;
@@ -63,7 +63,7 @@ public:
 		off_begin = off_end = 0; list = NULL;
 	}
 
-	class ptr_t;
+	struct ptr_t;
 
 	typedef void (*error_handler_t)(ptr_t const &ptr, char const *msg);
 
@@ -72,7 +72,7 @@ public:
 		static bool parse(ptr_t &ptr, x_t &x, char const *fmt, error_handler_t handler);
 	};
 
-	class ptr_t : public ptr_ops_t<ptr_t> {
+	struct ptr_t : public ptr_ops_t<ptr_t> {
 		char const *ptr, *bound;
 		size_t off_bound;
 		page_t *page;
@@ -187,17 +187,17 @@ public:
 			return helper_t<x_t>::parse(*this, x, NULL, handler);
 		}
 
-		friend class in_segment_t;
-		friend class in_buf_t;
+		friend struct in_segment_t;
+		friend struct in_buf_t;
 	};
 
-	friend class ptr_t;
+	friend struct ptr_t;
 
 	void *operator new(size_t) = delete;
 	void operator delete(void *) = delete;
 };
 
-class in_segment_t : public in_t {
+struct in_segment_t : public in_t {
 	virtual bool do_expand();
 	virtual void __noreturn unexpected_end() const;
 
@@ -226,7 +226,7 @@ public:
 
 	operator int() const = delete;
 
-protected:
+public:
 	inline in_segment_t(size_t _off_begin, size_t _off_end, page_t *_page) :
 		in_t() {
 		off_begin = _off_begin;
@@ -290,8 +290,8 @@ public:
 	}
 };
 
-class in_segment_list_t : public in_segment_t {
-	class __hidden page_t;
+struct in_segment_list_t : public in_segment_t {
+	struct __hidden page_t;
 
 	ref_t<in_t::page_t> *last;
 

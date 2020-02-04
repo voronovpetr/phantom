@@ -13,7 +13,7 @@
 
 namespace pd {
 
-class bq_conn_t {
+struct bq_conn_t {
 public:
 	log::level_t log_level;
 

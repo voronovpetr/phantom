@@ -12,7 +12,7 @@
 
 namespace pd { namespace http {
 
-class remote_reply_t {
+struct remote_reply_t {
 public:
 	version_t version;
 	code_t code;

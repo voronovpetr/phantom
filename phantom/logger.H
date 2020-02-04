@@ -14,12 +14,12 @@
 
 namespace phantom {
 
-class logger_t : public log::backend_t {
-protected:
+struct logger_t : public log::backend_t {
+public:
 	inline logger_t() throw() : log::backend_t() { }
 	inline ~logger_t() throw() { }
 
-protected:
+public:
 	void *operator new(size_t);
 	void operator delete(void *);
 };

@@ -12,11 +12,11 @@
 
 namespace phantom { namespace io_benchmark { namespace method_stream {
 
-class source_t : public shared_t {
+struct source_t : public shared_t {
 public:
 	virtual bool get_request(in_segment_t &request, in_segment_t &tag) const = 0;
 
-protected:
+public:
 	inline source_t(string_t const &name) throw() : shared_t(name) { }
 	inline ~source_t() throw() { }
 };

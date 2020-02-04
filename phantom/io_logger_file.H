@@ -15,10 +15,10 @@
 
 namespace phantom {
 
-class io_logger_file_t : public io_t, public log_file_t {
+struct io_logger_file_t : public io_t, public log_file_t {
 	interval_t check_interval;
 
-protected:
+public:
 	virtual void init();
 	virtual void run() const;
 	virtual void stat_print() const;

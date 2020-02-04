@@ -15,7 +15,7 @@
 
 namespace pd {
 
-class bq_conn_fd_t : public bq_conn_t {
+struct bq_conn_fd_t : public bq_conn_t {
 	virtual void setup_connect();
 	virtual void setup_accept();
 	virtual void shutdown();

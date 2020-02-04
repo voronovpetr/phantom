@@ -14,8 +14,8 @@
 namespace pd { namespace config {
 
 template<typename val_t>
-class list_t : public block_t {
-	class item_t : public list_item_t<item_t> {
+struct list_t : public block_t {
+	struct item_t : public list_item_t<item_t> {
 		val_t val;
 
 		inline item_t(item_t *&items) :
@@ -23,14 +23,14 @@ class list_t : public block_t {
 
 		inline ~item_t() throw() { }
 
-		friend class list_t;
-		friend class list_t::ptr_t;
+		friend struct list_t;
+		friend struct list_t::ptr_t;
 	} *items;
 
 	inline void clear() { while(items) delete items; }
 
 public:
-	class ptr_t {
+	struct ptr_t {
 		item_t const *item;
 
 	public:
@@ -98,7 +98,7 @@ struct helper_t<list_t<val_t>> {
 } // namespace config
 
 template<typename val_t>
-class sarray1_t {
+struct sarray1_t {
 public:
 	size_t size;
 	val_t *items;

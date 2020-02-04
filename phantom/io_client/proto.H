@@ -17,10 +17,10 @@
 
 namespace phantom { namespace io_client {
 
-class proto_t : public shared_t {
+struct proto_t : public shared_t {
 public:
-	class instance_t {
-	protected:
+	struct instance_t {
+	public:
 		unsigned int drank;
 	public:
 		virtual ~instance_t() throw();
@@ -28,13 +28,13 @@ public:
 		virtual void proc(bq_conn_t &conn) = 0;
 		virtual void stat_print() = 0;
 
-	protected:
+	public:
 		inline instance_t(unsigned int _rank) : drank(_rank) { }
 	};
 
 	virtual instance_t *create_instance(unsigned int _rank) = 0;
 
-protected:
+public:
 	inline proto_t(string_t const &name) throw() : shared_t(name) { }
 	inline ~proto_t() throw() { }
 };

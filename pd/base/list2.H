@@ -11,8 +11,8 @@
 namespace pd {
 
 template<typename x_t>
-class list2_item_t {
-protected:
+struct list2_item_t {
+public:
 	x_t *next, *prev;
 
 	inline list2_item_t(x_t *_this) throw() {
