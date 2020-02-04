@@ -1,5 +1,0 @@
-lib/libpd-ssl.a usr/lib
-lib/libpd-ssl.s.a usr/lib
-pd/ssl/ssl.H usr/include/pd/ssl
-pd/ssl/bq_conn_ssl.H usr/include/pd/ssl
-phantom/ssl/auth.H usr/include/phantom/ssl

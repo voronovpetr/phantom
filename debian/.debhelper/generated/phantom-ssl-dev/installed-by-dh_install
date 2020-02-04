@@ -1,5 +1,0 @@
-./lib/libpd-ssl.a
-./lib/libpd-ssl.s.a
-./pd/ssl/ssl.H
-./pd/ssl/bq_conn_ssl.H
-./phantom/ssl/auth.H

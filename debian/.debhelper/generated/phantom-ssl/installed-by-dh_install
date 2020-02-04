@@ -1,3 +1,0 @@
-./lib/phantom/mod_ssl.so
-./lib/phantom/mod_io_stream_transport_ssl.so
-./lib/phantom/mod_io_benchmark_method_stream_transport_ssl.so

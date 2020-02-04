@@ -1,9 +1,0 @@
-Package: phantom
-Version: 0.14.0~pre65load4nmuubuntu1
-Architecture: amd64
-Maintainer: Eugene Mamchits <mamchits@yandex-team.ru>
-Installed-Size: 3236
-Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libstdc++6 (>= 4.9)
-Section: net
-Priority: optional
-Description: I/O engine with some modules.
